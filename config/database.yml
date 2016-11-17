@@ -1,0 +1,24 @@
+---
+default: &default
+  database: lss_api
+  username: lss_api
+  password: "<%= ENV['RAILS_DB_PWD_LSS_API'] %>"
+  adapter: mysql2
+  encoding: utf8
+  pool: 5
+  host: localhost
+development:
+  <<: *default
+  username: "<%= ENV['RAILS_DB_USER_DBA'] %>"
+  password: "<%= ENV['RAILS_DB_PWD_DBA'] %>"
+  host: localhost
+production:
+  # 'Todo: Create the user with priveleges on rake function'
+  <<: *default
+  username: "<%= ENV['RAILS_DB_USER_DBA'] %>"
+  password: "<%= ENV['RAILS_DB_PWD_DBA'] %>"
+
+
+campaign_db:
+  <<: *default
+  database: 'lss_campaign'
